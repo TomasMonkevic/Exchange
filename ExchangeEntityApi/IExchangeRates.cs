@@ -6,6 +6,8 @@ namespace Exchange.Entity
     {
         ICurrency MainCurrency { get; set; }
         decimal Unit { get; set; }
+
+        // TODO make thi a decimal GetRates(ICurrency) method
         Dictionary<ICurrency, decimal> Rates { get; set; }
         
     }

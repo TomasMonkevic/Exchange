@@ -12,5 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ExchangeEntityApi\ExchangeEntityApi.csproj" />
     <ProjectReference Include="..\ExchangeEntity\ExchangeEntity.csproj" />
+    <ProjectReference Include="..\ExchangeServiceApi\ExchangeServiceApi.csproj" />
+    <ProjectReference Include="..\ExchangeService\ExchangeService.csproj" />
   </ItemGroup>
 </Project>
