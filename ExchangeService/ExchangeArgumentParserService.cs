@@ -21,7 +21,7 @@ namespace Exchange.Service
 
             string[] currencies = args[0].Split('/');
             // All ISO currency codes are made form 3 letters so this checks if the format is correct
-            if(currencies.Length != 2 && currencies[0].Length != 3 && currencies[1].Length != 3)
+            if(currencies.Length != 2 || currencies[0].Length != 3 || currencies[1].Length != 3)
             {
                 throw wrongArgumentsException;
             }
