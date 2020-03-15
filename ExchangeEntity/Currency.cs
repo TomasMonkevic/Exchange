@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Exchange.Entity
+﻿namespace Exchange.Entity
 {
     public class Currency : ICurrency
     {
@@ -22,7 +20,6 @@ namespace Exchange.Entity
             return Iso == other.Iso;
         }
 
-        // TODO move to interface
         public override int GetHashCode() {
             return Iso.GetHashCode();
         }

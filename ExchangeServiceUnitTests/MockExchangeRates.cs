@@ -1,13 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Exchange.Entity;
 
 namespace Exchange.Service.UnitTests
 {
     class MockExchangeRates : IExchangeRates
     {
+        private Dictionary<ICurrency, decimal> _rates;
+
+        public MockExchangeRates()
+        {
+            _rates = new Dictionary<ICurrency, decimal>() {
+                    { TestData.EUR, 743.94m},
+                    { TestData.USD, 663.11m},
+                    { TestData.GBP, 852.85m},
+             };
+        }
+
         public ICurrency MainCurrency
         {
-            get { return TestData.dkk; }
+            get { return TestData.DKK; }
             set { }
         }
         public decimal Unit
@@ -15,17 +27,16 @@ namespace Exchange.Service.UnitTests
             get { return 100.0m; }
             set { }
         }
-        public Dictionary<ICurrency, decimal> Rates
+        public decimal GetRate(ICurrency currency)
         {
-            get
+            try
             {
-                return new Dictionary<ICurrency, decimal>() {
-                    { TestData.eur, 743.94m},
-                    { TestData.usd, 663.11m},
-                    { TestData.gbp, 852.85m},
-                };
+                return _rates[currency];
             }
-            set { }
+            catch (KeyNotFoundException)
+            {
+                throw new Exception("Currency not found");
+            }
         }
     }
 }

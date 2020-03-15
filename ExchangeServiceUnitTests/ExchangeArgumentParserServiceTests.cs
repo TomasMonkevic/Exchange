@@ -20,8 +20,8 @@ namespace Exchange.Service.UnitTests
 
         public static IEnumerable<TestCaseData> TestCaseSourceData()
         {
-            yield return new TestCaseData(new string[] { "EUR/DKK", "1.5" }, new ExchangePair(TestData.eur, TestData.dkk, 1.5m), "");
-            yield return new TestCaseData(new string[] { "EUR/DKK", "123,456,789.0123" }, new ExchangePair(TestData.eur, TestData.dkk, 123456789.0123m), "");
+            yield return new TestCaseData(new string[] { "EUR/DKK", "1.5" }, new ExchangePair(TestData.EUR, TestData.DKK, 1.5m), "");
+            yield return new TestCaseData(new string[] { "EUR/DKK", "123,456,789.0123" }, new ExchangePair(TestData.EUR, TestData.DKK, 123456789.0123m), "");
             yield return new TestCaseData(new string[] { "EUR/DKK", "number" }, null, WRONG_ARGUMENT_FORMAT_EXCEPTION_MESSAGE);
             yield return new TestCaseData(new string[] { "EUR/DKK", "12 345,6789" }, null, WRONG_ARGUMENT_FORMAT_EXCEPTION_MESSAGE);
             yield return new TestCaseData(new string[] { "EUR DKK", "12 345,6789" }, null, WRONG_ARGUMENT_FORMAT_EXCEPTION_MESSAGE);

@@ -6,5 +6,7 @@ namespace Exchange.Entity
     {
         string Name { get; set; }
         string Iso { get; set; }
+
+        int GetHashCode();
     }
 }

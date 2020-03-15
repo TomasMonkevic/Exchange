@@ -8,24 +8,26 @@ namespace Exchange.Service.UnitTests
 {
     public class ExchangeServiceTests
     {
-        private ExchangeService _echangeService;
+        private ExchangeService _exchangeService;
         private MockExchangeRates _mockExchangeRates;
 
         [SetUp]
         public void Setup()
         {
-            _echangeService = new ExchangeService();
+            _exchangeService = new ExchangeService();
             _mockExchangeRates = new MockExchangeRates();
         }
 
         public static IEnumerable<TestCaseData> TestCaseSourceData()
         {
-            yield return new TestCaseData(new ExchangePair(TestData.eur, TestData.dkk, 1.0m), 7.4394m, "");
-            yield return new TestCaseData(new ExchangePair(TestData.dkk, TestData.usd, 6.63m), 0.999m, "");
-            yield return new TestCaseData(new ExchangePair(TestData.eur, TestData.usd, 1.0m), 1.121m, "");
-            yield return new TestCaseData(new ExchangePair(TestData.eur, TestData.eur, 104.0m), 104.0m, "");
+            yield return new TestCaseData(new ExchangePair(TestData.EUR, TestData.DKK, 1.0m), 7.4394m, "");
+            yield return new TestCaseData(new ExchangePair(TestData.DKK, TestData.USD, 6.63m), 0.999m, "");
+            yield return new TestCaseData(new ExchangePair(TestData.EUR, TestData.USD, 1.0m), 1.121m, "");
+            yield return new TestCaseData(new ExchangePair(TestData.USD, TestData.EUR, 1.0m), 0.891m, "");
+            yield return new TestCaseData(new ExchangePair(TestData.EUR, TestData.EUR, 104.0m), 104.0m, "");
+            yield return new TestCaseData(new ExchangePair(TestData.USD, TestData.GBP, 299.0m), 232.479m, "");
             // Would be nice to have a custom exception type but to save time only exception message will do
-            yield return new TestCaseData(new ExchangePair(TestData.LTL, TestData.eur, 104.0m), 104.0m, "Currency not found");
+            yield return new TestCaseData(new ExchangePair(TestData.LTL, TestData.EUR, 104.0m), 104.0m, "Currency not found");
         }
 
         bool AreEqual(decimal a, decimal b, decimal tolerance = 0.001m)
@@ -39,7 +41,7 @@ namespace Exchange.Service.UnitTests
         {
             try
             {
-                var actualAmount = _echangeService.CalculateMoneyCurrencyAmount(_mockExchangeRates, exchangePair);
+                var actualAmount = _exchangeService.CalculateMoneyCurrencyAmount(_mockExchangeRates, exchangePair);
                 Assert.IsTrue(AreEqual(actualAmount, expectedAmount), $"Expected amount should be {expectedAmount}, but actual is {actualAmount}");
                 Assert.IsTrue(string.IsNullOrEmpty(expectedException));
             }

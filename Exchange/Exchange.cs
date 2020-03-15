@@ -25,7 +25,14 @@ namespace Exchange
             var exchangeRates = container.Resolve<IExchangeRates>();
             var argumentParser = container.Resolve<IExchangeArgumentParserService>();
 
-            Console.WriteLine(service.CalculateMoneyCurrencyAmount(exchangeRates, argumentParser.ArgumentsToExchangePair(args)));
+            try
+            {
+                Console.WriteLine(service.CalculateMoneyCurrencyAmount(exchangeRates, argumentParser.ArgumentsToExchangePair(args)));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
