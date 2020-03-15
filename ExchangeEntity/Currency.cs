@@ -4,6 +4,7 @@ namespace Exchange.Entity
 {
     public class Currency : ICurrency
     {
+        public Currency(string iso) : this("", iso) { }
         public Currency(string name, string iso)
         {
             Name = name;
