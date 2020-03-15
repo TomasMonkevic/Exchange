@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange", "Exchange\Exchange.csproj", "{0C18A9E5-A820-46A2-B952-99ECC8983FE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exchange", "Exchange\Exchange.csproj", "{0C18A9E5-A820-46A2-B952-99ECC8983FE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{9C1F096E-FCE2-4114-B1F5-8431DC2F2B87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeEntityApi", "ExchangeEntityApi\ExchangeEntityApi.csproj", "{0CFD16A1-5C9A-4F5C-B8AE-5D30160FC4C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeEntityApi", "ExchangeEntityApi\ExchangeEntityApi.csproj", "{0CFD16A1-5C9A-4F5C-B8AE-5D30160FC4C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeEntity", "ExchangeEntity\ExchangeEntity.csproj", "{38E6ECC4-E2DE-4E0B-BD74-50767182602C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeEntity", "ExchangeEntity\ExchangeEntity.csproj", "{38E6ECC4-E2DE-4E0B-BD74-50767182602C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{90013BF3-DD59-43F2-B929-64EFF5C9A5AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeServiceApi", "ExchangeServiceApi\ExchangeServiceApi.csproj", "{E4729C84-CFD7-45E5-B45E-3A0352D21FD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeServiceApi", "ExchangeServiceApi\ExchangeServiceApi.csproj", "{E4729C84-CFD7-45E5-B45E-3A0352D21FD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeService", "ExchangeService\ExchangeService.csproj", "{9A2A98F0-5FFA-444D-B397-6C94C866E5DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeService", "ExchangeService\ExchangeService.csproj", "{9A2A98F0-5FFA-444D-B397-6C94C866E5DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeServiceUnitTests", "ExchangeServiceUnitTests\ExchangeServiceUnitTests.csproj", "{8FC3A35C-2D6A-447A-9C75-3815428FE813}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{9A2A98F0-5FFA-444D-B397-6C94C866E5DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A2A98F0-5FFA-444D-B397-6C94C866E5DE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A2A98F0-5FFA-444D-B397-6C94C866E5DE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8FC3A35C-2D6A-447A-9C75-3815428FE813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC3A35C-2D6A-447A-9C75-3815428FE813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC3A35C-2D6A-447A-9C75-3815428FE813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC3A35C-2D6A-447A-9C75-3815428FE813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
