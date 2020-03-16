@@ -11,22 +11,13 @@ namespace Exchange.Service.UnitTests
         public MockExchangeRates()
         {
             _rates = new Dictionary<ICurrency, decimal>() {
+                    { TestData.DKK, 100.0m },
                     { TestData.EUR, 743.94m},
                     { TestData.USD, 663.11m},
                     { TestData.GBP, 852.85m},
              };
         }
 
-        public ICurrency MainCurrency
-        {
-            get { return TestData.DKK; }
-            set { }
-        }
-        public decimal Unit
-        {
-            get { return 100.0m; }
-            set { }
-        }
         public decimal GetRate(ICurrency currency)
         {
             try

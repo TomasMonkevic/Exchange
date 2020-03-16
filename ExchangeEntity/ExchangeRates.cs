@@ -12,6 +12,7 @@ namespace Exchange.Entity
         {
             _entityFactory = factory;
             _rates = new Dictionary<ICurrency, decimal>() {
+                    { _entityFactory.CreateCurrency("Danske kroner", "DKK"), 100.0m }, //This is the main currency
                     { _entityFactory.CreateCurrency("Euro", "EUR"), 743.94m},
                     { _entityFactory.CreateCurrency("Amerikanske dollar", "USD"), 663.11m},
                     { _entityFactory.CreateCurrency("Britiske pund", "GBP"), 852.85m},
@@ -20,16 +21,6 @@ namespace Exchange.Entity
                     { _entityFactory.CreateCurrency("Schweiziske franc", "CHF"), 683.58m},
                     { _entityFactory.CreateCurrency("Japanske yen", "JPY"), 5.9740m},
             };
-        }
-        public ICurrency MainCurrency 
-        { 
-            get { return _entityFactory.CreateCurrency("Danske kroner", "DKK"); } 
-            set { }
-        }
-        public decimal Unit 
-        { 
-            get { return 100.0m; }
-            set { }
         }
         public decimal GetRate(ICurrency currency)
         { 

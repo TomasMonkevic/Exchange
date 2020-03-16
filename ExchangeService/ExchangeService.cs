@@ -15,21 +15,9 @@ namespace Exchange.Service
 
             try
             {
-                if (exchangePair.MainCurrency.Equals(exchangeRates.MainCurrency)) {
-                    decimal moneyCurrencyRate = exchangeRates.GetRate(exchangePair.MoneyCurrency);
-                    return (exchangePair.Amount * exchangeRates.Unit) / moneyCurrencyRate;
-                }
-
-                if (exchangePair.MoneyCurrency.Equals(exchangeRates.MainCurrency)) {
-                    decimal mainCurrencyRate = exchangeRates.GetRate(exchangePair.MainCurrency);
-                    return (exchangePair.Amount * mainCurrencyRate) / exchangeRates.Unit;
-                }
-                else
-                {
-                    decimal mainCurrencyRate = exchangeRates.GetRate(exchangePair.MainCurrency);
-                    decimal moneyCurrencyRate = exchangeRates.GetRate(exchangePair.MoneyCurrency);
-                    return (exchangePair.Amount * mainCurrencyRate) / moneyCurrencyRate;
-                }
+                decimal mainCurrencyRate = exchangeRates.GetRate(exchangePair.MainCurrency);
+                decimal moneyCurrencyRate = exchangeRates.GetRate(exchangePair.MoneyCurrency);
+                return (exchangePair.Amount * mainCurrencyRate) / moneyCurrencyRate;
             }
             catch
             {
