@@ -4,6 +4,6 @@ namespace Exchange.Service
 {
     public interface IExchangeService
     {
-        decimal CalculateMoneyCurrencyAmount(IExchangeRates exchangeRates, IExchangePair exchangePair);
+        decimal CalculateMoneyCurrencyAmount(IExchangePair exchangePair);
     }
 }

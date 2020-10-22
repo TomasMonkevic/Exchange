@@ -7,23 +7,16 @@ namespace Exchange.Service
 {
     public class ExchangeService : IExchangeService
     {
-        public decimal CalculateMoneyCurrencyAmount(IExchangeRates exchangeRates, IExchangePair exchangePair)
+        private readonly IExchangeRates _exchangeRates;
+        public ExchangeService(IExchangeRates exchangeRates)
         {
-            if (exchangePair.MainCurrency.Equals(exchangePair.MoneyCurrency)) {
-                return exchangePair.Amount;
-            }
-
-            try
-            {
-                decimal mainCurrencyRate = exchangeRates.GetRate(exchangePair.MainCurrency);
-                decimal moneyCurrencyRate = exchangeRates.GetRate(exchangePair.MoneyCurrency);
-                return (exchangePair.Amount * mainCurrencyRate) / moneyCurrencyRate;
-            }
-            catch
-            {
-                // Pass the exception to higher level and handle it there
-                throw;
-            }
+            _exchangeRates = exchangeRates;
+        }
+        public decimal CalculateMoneyCurrencyAmount(IExchangePair exchangePair)
+        {
+            decimal mainCurrencyRate = _exchangeRates.GetRate(exchangePair.MainCurrency);
+            decimal moneyCurrencyRate = _exchangeRates.GetRate(exchangePair.MoneyCurrency);
+            return (exchangePair.Amount * mainCurrencyRate) / moneyCurrencyRate;
         }
     }
 }

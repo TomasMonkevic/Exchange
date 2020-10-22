@@ -8,14 +8,11 @@ namespace Exchange.Service.UnitTests
 {
     public class ExchangeServiceTests
     {
-        private ExchangeService _exchangeService;
-        private MockExchangeRates _mockExchangeRates;
+        private readonly ExchangeService _exchangeService;
 
-        [SetUp]
-        public void Setup()
+        public ExchangeServiceTests()
         {
-            _exchangeService = new ExchangeService();
-            _mockExchangeRates = new MockExchangeRates();
+            _exchangeService = new ExchangeService(new MockExchangeRates());
         }
 
         public static IEnumerable<TestCaseData> TestCaseSourceData()
@@ -41,7 +38,7 @@ namespace Exchange.Service.UnitTests
         {
             try
             {
-                var actualAmount = _exchangeService.CalculateMoneyCurrencyAmount(_mockExchangeRates, exchangePair);
+                var actualAmount = _exchangeService.CalculateMoneyCurrencyAmount(exchangePair);
                 Assert.IsTrue(AreEqual(actualAmount, expectedAmount), $"Expected amount should be {expectedAmount}, but actual is {actualAmount}");
                 Assert.IsTrue(string.IsNullOrEmpty(expectedException));
             }

@@ -22,12 +22,12 @@ namespace Exchange
 
             var container = builder.Build();
             var service = container.Resolve<IExchangeService>();
-            var exchangeRates = container.Resolve<IExchangeRates>();
             var argumentParser = container.Resolve<IExchangeArgumentParserService>();
 
             try
             {
-                Console.WriteLine(service.CalculateMoneyCurrencyAmount(exchangeRates, argumentParser.ArgumentsToExchangePair(args)));
+                var exchangePair = argumentParser.ArgumentsToExchangePair(args);
+                Console.WriteLine(service.CalculateMoneyCurrencyAmount(exchangePair));
             }
             catch(Exception e)
             {
